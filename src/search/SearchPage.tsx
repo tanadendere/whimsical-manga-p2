@@ -13,14 +13,13 @@ function SearchPage() {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      console.log(input);
       const data = search(input);
       data.then((results) => {
         setSearchResults(results);
       });
     }, 500);
     return () => clearTimeout(timeoutId);
-  }, [input]); // will run onlt when the input changes - dependency array
+  }, [input]);
 
   return (
     <>
