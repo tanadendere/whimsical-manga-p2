@@ -4,6 +4,7 @@ import { getComicInfo } from "./api.comicInfo";
 import { getImageURL } from "../apiUrls";
 import { FaRegStar } from "react-icons/fa";
 import { FaBookOpenReader, FaStar } from "react-icons/fa6";
+import Chapters from "./elements/Chapters";
 
 function MangaDetailsPage({ comicSlug }: { comicSlug: string }) {
   const [comicData, setComicData] = useState<IComicData>();
@@ -17,7 +18,7 @@ function MangaDetailsPage({ comicSlug }: { comicSlug: string }) {
 
   return (
     <>
-      <div className="w-svw flex flex-col gap-3">
+      <div className="w-svw flex flex-col gap-3 m-4">
         <div className="flex flex-col items-center">
           <h1 className="text-2xl font-bold">{comicData?.comic.title}</h1>
           {comicData?.comic.last_chapter ? (
@@ -82,10 +83,15 @@ function MangaDetailsPage({ comicSlug }: { comicSlug: string }) {
           </div>
         </div>
 
-        <div className="m-4">
+        <div className="">
           <h2 className="font-bold">Description</h2>
           <p>{comicData?.comic.desc}</p>
         </div>
+
+        <Chapters
+          comicHid={comicData?.comic.hid ?? ""}
+          latestChapter={comicData?.comic.last_chapter ?? 0}
+        ></Chapters>
       </div>
     </>
   );
