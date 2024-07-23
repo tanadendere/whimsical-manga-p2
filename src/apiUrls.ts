@@ -1,5 +1,8 @@
-export const apiBaseURL = "https://api.comick.io/";
+export const apiBaseURL = "https://api.comick.fun/";
 
-export function getImageURL(b2key: string): string {
-  return `https://meo3.comick.pictures/${b2key}`;
+export function getImageURL(b2key: string | undefined): string {
+  if (b2key) {
+    return `https://meo3.comick.pictures/${b2key}`;
+  }
+  return "https://placehold.co/600x400";
 }

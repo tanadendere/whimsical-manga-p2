@@ -27,6 +27,7 @@ export interface IComic {
   author: string;
   numAuthors: number;
   bayesian_rating: string;
+  rating_count: number;
 }
 
 export interface Creator {
